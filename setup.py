@@ -13,7 +13,8 @@ setup(
         'matplotlib',
         'sklearn',
         'xgboost',
-        'pandas'
+        'pandas',
+        'git+https://github.com/DmitriLyalikov/pdt-canny-edge-detector.git#egg=repo'
     ],
     description="Pendant Drop Tensiometry-Regressor",
     author_email='Dlyalikov01@manhattan.edu',
