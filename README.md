@@ -1,4 +1,4 @@
-# pdt_regressor
+# pdt-regressor
 An XGBoost Regressor that predicts interfacial tension and pressure from the edge profile of a pendant drop.
 
 This is part of a larger processing pipeline where the input data is derived from the output of the [`pdt-canny-edge-detector`][1].  
