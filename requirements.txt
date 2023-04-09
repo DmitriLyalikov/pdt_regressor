@@ -1,0 +1,7 @@
+xgboost==1.7.5
+scikit-learn==1.2.2
+scipy==1.10.1
+pandas==2.0.0
+numpy==1.24.2
+matplotlib==3.7.1
+circle-fit==0.2.0
