@@ -14,6 +14,8 @@ setup(
         'sklearn',
         'xgboost',
         'pandas',
+        'circle-fit',
+        'pickle',
         'git+https://github.com/DmitriLyalikov/pdt-canny-edge-detector.git'
     ],
     description="Pendant Drop Tensiometry-Regressor",
