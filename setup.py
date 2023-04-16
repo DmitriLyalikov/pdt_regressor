@@ -16,6 +16,7 @@ setup(
         'pandas',
         'circle-fit',
         'pickle',
+        'lightgbm',
         'git+https://github.com/DmitriLyalikov/pdt-canny-edge-detector.git'
     ],
     description="Pendant Drop Tensiometry-Regressor",

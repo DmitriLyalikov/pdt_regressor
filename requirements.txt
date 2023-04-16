@@ -5,3 +5,4 @@ pandas==2.0.0
 numpy==1.24.2
 matplotlib==3.7.1
 circle-fit==0.2.0
+lightgbm==3.3.5
