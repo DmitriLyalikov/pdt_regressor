@@ -49,7 +49,6 @@ y_pred = model.predict(X_test)
 reg_mse = mean_squared_error(y_test, y_pred)
 reg_rmse = np.sqrt(reg_mse)
 ```
-## Feature Extraction
 ## Hyperparameter Tuning
 XGBoost Hyperparameters are used to improve the performance of the model, reduce variance, and minimize overfitting.
 Some important HP are learning_rate (eta), max_depth, no_of_iterations, and subsamples. [`Complete list of XGBoost Hyperparameters can be found here`][2]

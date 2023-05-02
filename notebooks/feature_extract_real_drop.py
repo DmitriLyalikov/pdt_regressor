@@ -1,4 +1,6 @@
+
 #Finding Equator radius (Re) and Rs @ y=2Re
+
 def Find_Re_Rs(x,y,n,Drop_Height):
   # at i_th x: we average from i-n to i+n which means 11 points
   global R_e
