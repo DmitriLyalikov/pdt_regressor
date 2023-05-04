@@ -60,7 +60,9 @@ if "__name__" == "__main__":
     R_e_values = Array('d')
     Beta_values = Array('d')
 
-
+    lock = Lock()
+    for Beta in np.linspace(Beta_min, Beta_max, num=Beta_num):
+        # spawn a block of processes
 
 
 
