@@ -14,8 +14,9 @@ import multiprocessing as mp
 import numpy as np
 from circle_fit import taubinSVD
 import math
-from scipy.integrate import odeint
+from scipy.integrate import odeint, solve_ivp
 import csv
+import dill
 
 
 def Drop_Profil(z, t, Beta):
@@ -28,8 +29,7 @@ def Drop_Profil(z, t, Beta):
     dzdt = [dxdt, dydt, dphidt]
     return dzdt
 
-
-# Adding noise to the drop profile
+    # Adding noise to the drop profile
 def Add_Noise_Drop_Profile(z, noise_Percent_of_datamean):
     y = z[:, 1]
     x = z[:, 0]
@@ -42,7 +42,6 @@ def Add_Noise_Drop_Profile(z, noise_Percent_of_datamean):
     x = x[loc_y_incr]  # sorted from apex
     y = y[loc_y_incr]  # sorted from apex
     return x, y
-
 
 # Finding Equator radius (Re) and Rs @ y=2Re
 def Find_Re_Rs(x, y, n, Drop_Height):
@@ -95,9 +94,8 @@ def Find_Re_Rs(x, y, n, Drop_Height):
         R_s = x[res]
     else:
         # Drop is too small
-        R_s = x[-1] # R_cap
+        R_s = x[-1]  # R_cap
     return R_e, R_s
-
 
 # This function returns Smin and Smax for integration based on Beta values
 # Developed based on Helen, Payton and Dmitri Excel file
@@ -111,7 +109,9 @@ def find_Smin_Smax(Beta, SF):
         Smax = 1.86 * Beta + 4.46
     return (1 + SF) * Smin, (1 - SF) * Smax
 
-def compute_kernel(beta: int,):
+
+def compute_kernel(beta: int):
+    return_list = []
     Smin, Smax = find_Smin_Smax(beta, SF=0.02)
     for S in np.linspace(Smin, Smax, num=Smax_num):
         # solve ODE to generate the drop profile datapoint
@@ -127,11 +127,14 @@ def compute_kernel(beta: int,):
 
         R_e, R_s = Find_Re_Rs(x, y, 5, Drop_Height)
 
-        return [Drop_Height, R_Cap, R_s, R_e, beta]
+        return_list.append([Drop_Height, R_Cap, R_s, R_e, beta])
+    return [3, 2, 1, 0, 3]
 
 
-if "__name__" == "__main__":
-    print("here")
+
+
+if __name__ == "__main__":
+
     num_processes_per_block = mp.cpu_count()  # number of processes that can run at a given time
 
     num_point_integration = 200
@@ -154,12 +157,3 @@ if "__name__" == "__main__":
         writer = csv.writer(file)
         for row in results:
             writer.writerow(row)
-
-    print("done")
-
-
-
-
-
-
-
