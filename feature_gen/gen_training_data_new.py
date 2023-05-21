@@ -73,7 +73,7 @@ def Find_Re_Rs(x, y, n, Drop_Height):
     else:
         # Drop is too small
         R_s = R_Cap
-        return R_e, R_s
+    return R_e, R_s
 
 # This function returns Smin and Smax for integration based on Beta values
 # Developed based on Helen, Payton and Dmitri Excel file
