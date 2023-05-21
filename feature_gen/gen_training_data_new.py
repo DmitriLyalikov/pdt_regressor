@@ -100,7 +100,7 @@ noise_Percent_of_datamean = 0.01
 
 Beta_min = 0.1
 Beta_max = 0.8
-Beta_num = 501  # number of datapoint for Beta
+Beta_num = 701  # number of datapoint for Beta
 Smax_num = 101  # number of datapoint for Smax
 
 # We decide how many outputs and input we need
